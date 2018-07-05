@@ -129,7 +129,7 @@ gl_PROMOTED_TYPE_MODE_T
 gl_VISIBILITY
 
 AC_CHECK_HEADERS([sys/klog.h])
-AC_CHECK_FUNCS([klogctl strchrnul])
+AC_CHECK_FUNCS([getsubopt klogctl strchrnul])
 
 AC_CACHE_CHECK([for ioctl with POSIX signature],
   [gl_cv_func_ioctl_posix_signature],

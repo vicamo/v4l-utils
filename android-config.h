@@ -39,6 +39,11 @@
 /* Define to 1 if you have the `fork' function. */
 #define HAVE_FORK 1
 
+/* Define to 1 if you have the `getsubopt' function. */
+#if ANDROID_PLATFORM_SDK_VERSION >= 26
+# define HAVE_GETSUBOPT 1
+#endif
+
 /* Define if the GNU gettext() function is already present or preinstalled. */
 /* #undef HAVE_GETTEXT */
 
@@ -397,6 +402,7 @@ static inline char *strchrnul (const char *s, int c_in)
 }
 #endif /* !HAVE_STRCHRNUL */
 
+#if !defined(HAVE_GETSUBOPT)
 /*
  * Import getsubopt(...) from uClibc version 0.9.33.2 since this feature is
  * missing in the Android C library.
@@ -473,4 +479,5 @@ getsubopt (char **optionp, char *const *tokens, char **valuep)
 
   return -1;
 }
+#endif /* !HAVE_GETSUBOPT */
 #endif
