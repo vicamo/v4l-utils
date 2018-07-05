@@ -3,11 +3,39 @@
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
+/* Define to 1 if translation of program messages to the user's native
+   language is requested. */
+/* #undef ENABLE_NLS */
+
 /* alsa library is present */
 /* #undef HAVE_ALSA */
 
+/* glibc has functions to provide stack backtrace */
+/* #undef HAVE_BACKTRACE */
+
+/* Define to 1 if you have the Mac OS X function CFLocaleCopyCurrent in the
+   CoreFoundation framework. */
+/* #undef HAVE_CFLOCALECOPYCURRENT */
+
+/* Define to 1 if you have the Mac OS X function CFPreferencesCopyAppValue in
+   the CoreFoundation framework. */
+/* #undef HAVE_CFPREFERENCESCOPYAPPVALUE */
+
+/* Define if the GNU dcgettext() function is already present or preinstalled.
+   */
+/* #undef HAVE_DCGETTEXT */
+
 /* Define to 1 if you have the <dlfcn.h> header file. */
 #define HAVE_DLFCN_H 1
+
+/* Usage of DVBv5 remote enabled */
+/* #undef HAVE_DVBV5_REMOTE */
+
+/* Define to 1 if you have the `fork' function. */
+#define HAVE_FORK 1
+
+/* Define if the GNU gettext() function is already present or preinstalled. */
+/* #undef HAVE_GETTEXT */
 
 /* Define if you have the iconv() function and it works. */
 /* #undef HAVE_ICONV */
@@ -21,11 +49,29 @@
 /* Define to 1 if you have the `klogctl' function. */
 #define HAVE_KLOGCTL 1
 
+/* Use libudev */
+/* #undef HAVE_LIBUDEV */
+
+/* whether to use libv4lconvert helpers */
+#define HAVE_LIBV4LCONVERT_HELPERS 1
+
 /* Define to 1 if you have the <memory.h> header file. */
 #define HAVE_MEMORY_H 1
 
+/* Have ioctl with POSIX signature */
+#define HAVE_POSIX_IOCTL 1
+
+/* Define if you have POSIX threads libraries and header files. */
+#define HAVE_PTHREAD 1
+
+/* Have PTHREAD_PRIO_INHERIT. */
+/* #undef HAVE_PTHREAD_PRIO_INHERIT */
+
 /* qt has opengl support */
 /* #undef HAVE_QTGL */
+
+/* Define to 1 if you have the `secure_getenv' function. */
+/* #undef HAVE_SECURE_GETENV */
 
 /* Define to 1 if you have the <stdint.h> header file. */
 #define HAVE_STDINT_H 1
@@ -51,9 +97,15 @@
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
 
+/* V4L plugin support enabled */
+#define HAVE_V4L_PLUGINS 1
+
 /* Define to 1 or 0, depending whether the compiler supports simple visibility
    declarations. */
 #define HAVE_VISIBILITY 1
+
+/* Define to 1 if you have the `__secure_getenv' function. */
+/* #undef HAVE___SECURE_GETENV */
 
 /* Define as const if the declaration of iconv() needs const. */
 /* #undef ICONV_CONST */
@@ -63,6 +115,9 @@
 
 /* ir-keytable user defined tables directory */
 #define IR_KEYTABLE_USER_DIR "/system/etc/rc_keymaps"
+
+/* libdvbv5 domain */
+#define LIBDVBV5_DOMAIN "libdvbv5"
 
 /* libv4l1 private lib directory */
 #define LIBV4L1_PRIV_DIR "/system/lib/libv4l"
@@ -76,9 +131,19 @@
 /* libv4lconvert private lib directory */
 #define LIBV4LCONVERT_PRIV_DIR "/system/lib/libv4l"
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* locale directory */
+#define LOCALEDIR "/system/usr/share/locale"
+
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #define LT_OBJDIR ".libs/"
+
+/* Define to 1 if `major', `minor', and `makedev' are declared in <mkdev.h>.
+   */
+/* #undef MAJOR_IN_MKDEV */
+
+/* Define to 1 if `major', `minor', and `makedev' are declared in
+   <sysmacros.h>. */
+/* #undef MAJOR_IN_SYSMACROS */
 
 /* Name of package */
 #define PACKAGE "v4l-utils"
@@ -90,7 +155,7 @@
 #define PACKAGE_NAME "v4l-utils"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "v4l-utils 1.1.0"
+#define PACKAGE_STRING "v4l-utils 1.14.0"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "v4l-utils"
@@ -99,20 +164,56 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "1.1.0"
+#define PACKAGE_VERSION "1.14.0"
 
 /* Define to the type that is the result of default argument promotions of
    type mode_t. */
-#define PROMOTED_MODE_T int
+#define PROMOTED_MODE_T mode_t
+
+/* Define to necessary symbol if this constant uses a non-standard name on
+   your system. */
+/* #undef PTHREAD_CREATE_JOINABLE */
 
 /* Define to 1 if you have the ANSI C header files. */
 #define STDC_HEADERS 1
 
+/* Enable extensions on AIX 3, Interix.  */
+#ifndef _ALL_SOURCE
+# define _ALL_SOURCE 1
+#endif
+/* Enable GNU extensions on systems that have them.  */
+#ifndef _GNU_SOURCE
+# define _GNU_SOURCE 1
+#endif
+/* Enable threading extensions on Solaris.  */
+#ifndef _POSIX_PTHREAD_SEMANTICS
+# define _POSIX_PTHREAD_SEMANTICS 1
+#endif
+/* Enable extensions on HP NonStop.  */
+#ifndef _TANDEM_SOURCE
+# define _TANDEM_SOURCE 1
+#endif
+/* Enable general extensions on Solaris.  */
+#ifndef __EXTENSIONS__
+# define __EXTENSIONS__ 1
+#endif
+
+
 /* v4l-utils version string */
-#define V4L_UTILS_VERSION "1.1.0"
+#define V4L_UTILS_VERSION "1.14.0"
 
 /* Version number of package */
-#define VERSION "1.1.0"
+#define VERSION "1.14.0"
+
+/* Define to 1 if on MINIX. */
+/* #undef _MINIX */
+
+/* Define to 2 if the system does not provide POSIX.1 features except with
+   this defined. */
+/* #undef _POSIX_1_SOURCE */
+
+/* Define to 1 if you need to in order for `stat' and other things to work. */
+/* #undef _POSIX_SOURCE */
 
 /* Define to `int' if <sys/types.h> does not define. */
 /* #undef mode_t */
