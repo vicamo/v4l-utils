@@ -24,7 +24,6 @@
 #include <stdarg.h>
 #include <dlfcn.h>
 #include <fcntl.h>
-#include <glob.h>
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <sys/types.h>
