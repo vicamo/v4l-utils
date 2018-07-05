@@ -39,5 +39,8 @@ LOCAL_SRC_FILES := \
 ifneq ($(filter 8 9 10 11 12 13 14 15 16 17 18 19,$(PLATFORM_SDK_VERSION)),)
 LOCAL_SHARED_LIBRARIES += libstlport
 include external/stlport/libstlport.mk
+else ifneq ($(filter 21 22,$(PLATFORM_SDK_VERSION)),)
+# Include for C++ support in Android Lollipop. Later versions don't need this.
+include external/libcxx/libcxx.mk
 endif
 include $(BUILD_EXECUTABLE)
