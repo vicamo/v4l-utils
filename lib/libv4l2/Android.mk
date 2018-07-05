@@ -8,6 +8,7 @@ LOCAL_SRC_FILES := \
     v4l2convert.c \
     v4l2-plugin-android.c
 
+LOCAL_CFLAGS += -DANDROID_PLATFORM_SDK_VERSION=$(PLATFORM_SDK_VERSION)
 LOCAL_CFLAGS += -Wno-missing-field-initializers
 LOCAL_CFLAGS += -Wno-sign-compare
 

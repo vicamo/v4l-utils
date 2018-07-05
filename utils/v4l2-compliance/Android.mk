@@ -5,6 +5,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := v4l2-compliance
 LOCAL_MODULE_TAGS := optional
 
+LOCAL_CFLAGS += -DANDROID_PLATFORM_SDK_VERSION=$(PLATFORM_SDK_VERSION)
 LOCAL_CFLAGS += -DNO_LIBV4L2
 LOCAL_CFLAGS += -Wno-missing-braces
 LOCAL_CFLAGS += -Wno-missing-field-initializers

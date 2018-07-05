@@ -1,5 +1,10 @@
 #ifndef __V4L_ANDROID_CONFIG_H__
 #define __V4L_ANDROID_CONFIG_H__
+
+#ifndef ANDROID_PLATFORM_SDK_VERSION
+#error "ANDROID_PLATFORM_SDK_VERSION not defined"
+#endif
+
 /* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
@@ -78,6 +83,11 @@
 
 /* Define to 1 if you have the <stdlib.h> header file. */
 #define HAVE_STDLIB_H 1
+
+/* Define to 1 if you have the `strchrnul' function. */
+#if ANDROID_PLATFORM_SDK_VERSION >= 24
+# define HAVE_STRCHRNUL 1
+#endif
 
 /* Define to 1 if you have the <strings.h> header file. */
 #define HAVE_STRINGS_H 1
@@ -218,6 +228,7 @@
 /* Define to `int' if <sys/types.h> does not define. */
 /* #undef mode_t */
 
+#if !defined(HAVE_STRCHRNUL)
 /*
  * Import strchrnul(...) from uClibc version 0.9.33.2 since this feature is
  * missing in the Android C library.
@@ -384,6 +395,7 @@ static inline char *strchrnul (const char *s, int c_in)
   /* This should never happen.  */
   return NULL;
 }
+#endif /* !HAVE_STRCHRNUL */
 
 /*
  * Import getsubopt(...) from uClibc version 0.9.33.2 since this feature is

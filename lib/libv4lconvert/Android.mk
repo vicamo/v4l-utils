@@ -33,6 +33,7 @@ LOCAL_SRC_FILES := \
     processing/libv4lprocessing.c  \
     processing/whitebalance.c \
 
+LOCAL_CFLAGS += -DANDROID_PLATFORM_SDK_VERSION=$(PLATFORM_SDK_VERSION)
 LOCAL_CFLAGS += -Wno-missing-field-initializers
 LOCAL_CFLAGS += -Wno-sign-compare
 
