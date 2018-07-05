@@ -20,6 +20,12 @@
 
  */
 
+#ifdef ANDROID
+#include <android-config.h>
+#else
+#include <config.h>
+#endif
+
 #include <string.h>
 #include "libv4lconvert-priv.h"
 

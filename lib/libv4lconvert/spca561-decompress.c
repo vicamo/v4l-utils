@@ -27,6 +27,13 @@
  *	It was developed for "Labtec WebCam Elch 2(SPCA561A)" (046d:0929)
  *	but it might work with other spca561 cameras
  */
+
+#ifdef ANDROID
+#include <android-config.h>
+#else
+#include <config.h>
+#endif
+
 #include <string.h>
 #include "libv4lconvert-priv.h"
 
