@@ -158,7 +158,9 @@
 
 /* Define to 1 if `major', `minor', and `makedev' are declared in
    <sysmacros.h>. */
-/* #undef MAJOR_IN_SYSMACROS */
+#if ANDROID_PLATFORM_SDK_VERSION >= 27
+# define MAJOR_IN_SYSMACROS 1
+#endif
 
 /* Name of package */
 #define PACKAGE "v4l-utils"

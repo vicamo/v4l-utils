@@ -19,6 +19,12 @@
 # Foundation, Inc., 51 Franklin Street, Suite 500, Boston, MA  02110-1335  USA
  */
 
+#ifdef ANDROID
+#include <android-config.h>
+#else
+#include <config.h>
+#endif
+
 #include <sys/types.h>
 #if defined(MAJOR_IN_SYSMACROS)
 #include <sys/sysmacros.h>
