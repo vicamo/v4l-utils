@@ -31,7 +31,6 @@ LOCAL_SRC_FILES := \
     v4l2-ctl-vidcap.cpp \
     v4l2-ctl-vidout.cpp \
     v4l2-ctl.cpp \
-    v4l2-ctl.h \
     v4l2-tpg-colors.c \
     v4l2-tpg-core.c \
     $(empty)
