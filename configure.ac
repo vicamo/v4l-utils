@@ -129,7 +129,7 @@ gl_PROMOTED_TYPE_MODE_T
 gl_VISIBILITY
 
 AC_CHECK_HEADERS([sys/klog.h])
-AC_CHECK_FUNCS([klogctl])
+AC_CHECK_FUNCS([getsubopt klogctl strchrnul])
 
 AC_CACHE_CHECK([for ioctl with POSIX signature],
   [gl_cv_func_ioctl_posix_signature],
@@ -290,14 +290,18 @@ dl_saved_libs=$LIBS
   AC_SUBST([DLOPEN_LIBS])
 LIBS=$dl_saved_libs
 
-AC_CHECK_HEADER([argp.h],,AC_MSG_ERROR(Cannot continue: argp.h not found))
-argp_saved_libs=$LIBS
-  AC_SEARCH_LIBS([argp_parse],
-                 [argp],
-                 [test "$ac_cv_search_argp_parse" = "none required" || ARGP_LIBS=$ac_cv_search_argp_parse],
-                 [AC_MSG_ERROR([unable to find the argp_parse() function])])
-  AC_SUBST([ARGP_LIBS])
-LIBS=$argp_saved_libs
+AC_CHECK_HEADER([argp.h],
+	[argp_saved_libs=$LIBS
+	  AC_SEARCH_LIBS([argp_parse],
+			 [argp],
+			 [test "$ac_cv_search_argp_parse" = "none required" || ARGP_LIBS=$ac_cv_search_argp_parse],
+			 [AC_MSG_ERROR([unable to find the argp_parse() function])])
+	  AC_SUBST([ARGP_LIBS])
+	LIBS=$argp_saved_libs],
+	[case "${host_os}" in
+	   *android) ;;
+	   *) AC_MSG_ERROR(Cannot continue: argp.h not found);;
+	 esac])
 
 AC_CHECK_FUNCS([fork], AC_DEFINE([HAVE_LIBV4LCONVERT_HELPERS],[1],[whether to use libv4lconvert helpers]))
 AM_CONDITIONAL([HAVE_LIBV4LCONVERT_HELPERS], [test x$ac_cv_func_fork = xyes])

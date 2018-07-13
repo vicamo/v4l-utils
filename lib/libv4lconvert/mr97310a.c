@@ -19,6 +19,12 @@
  * Boston, MA 02111-1307, USA.
  */
 
+#ifdef ANDROID
+#include <android-config.h>
+#else
+#include <config.h>
+#endif
+
 #include <unistd.h>
 #include "libv4lconvert-priv.h"
 #include "libv4lsyscall-priv.h"

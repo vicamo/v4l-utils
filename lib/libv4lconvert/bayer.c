@@ -29,6 +29,12 @@
  * see bayer.c from libdc1394 for all supported algorithms
  */
 
+#ifdef ANDROID
+#include <android-config.h>
+#else
+#include <config.h>
+#endif
+
 #include <string.h>
 #include "libv4lconvert-priv.h"
 

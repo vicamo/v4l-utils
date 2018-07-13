@@ -55,7 +55,11 @@
 #define LIBV4L_PUBLIC
 #endif
 
-LIBV4L_PUBLIC int open(const char *file, int oflag, ...)
+#ifndef __overloadable
+#define __overloadable
+#endif
+
+LIBV4L_PUBLIC int open(const char *file, int oflag, ...) __overloadable
 {
 	int fd;
 	int v4l_device = 0;
